@@ -9,21 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const user = document.getElementById("signupUser").value.trim();
       const pass = document.getElementById("signupPass").value;
 
+      // Check if the user already exists
       const storedUser = localStorage.getItem("user");
-
       if (storedUser && storedUser === user) {
-        showMessage("signupMsg", "❌ Username already exists.");
+        showMessage("signupMsg", "❌ Username already exists. Please choose another.");
         return;
       }
 
       if (user === "" || pass === "") {
-        showMessage("signupMsg", "❌ Please fill in all fields.");
+        showMessage("signupMsg", "❌ Please fill in both fields.");
         return;
       }
 
+      // Store user info in localStorage
       localStorage.setItem("user", user);
       localStorage.setItem("pass", pass);
-      showMessage("signupMsg", "✅ Account created! Redirecting...", "green");
+
+      // Success message and redirect
+      showMessage("signupMsg", "✅ Account created successfully!", "green");
 
       setTimeout(() => {
         window.location.href = "index.html";
@@ -41,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const storedUser = localStorage.getItem("user");
       const storedPass = localStorage.getItem("pass");
 
+      // Check if the user exists and credentials match
       if (!storedUser || !storedPass) {
         showMessage("loginMsg", "❌ No account found. Please sign up.");
         return;
@@ -55,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Function to display messages
   function showMessage(id, msg, color = "red") {
     const el = document.getElementById(id);
     if (el) {
