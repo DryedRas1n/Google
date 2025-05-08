@@ -5,15 +5,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Login</h2>
-  <form id="loginForm">
-    <input type="text" id="loginUser" placeholder="Username" required><br>
-    <input type="password" id="loginPass" placeholder="Password" required><br>
-    <button type="submit">Login</button>
-  </form>
-  <p>No account? <a href="signup.html">Sign up here</a></p>
-
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="loginUser" placeholder="Username" required><br>
+      <input type="password" id="loginPass" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginMsg" class="message"></p>
+    <p>No account? <a href="signup.html">Sign up here</a></p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
-
