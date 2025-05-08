@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const signupForm = document.getElementById("signupForm");
 
+  // SIGN UP
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -9,8 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const pass = document.getElementById("signupPass").value;
 
       const storedUser = localStorage.getItem("user");
-      if (storedUser === user) {
+
+      if (storedUser && storedUser === user) {
         showMessage("signupMsg", "❌ Username already exists.");
+        return;
+      }
+
+      if (user === "" || pass === "") {
+        showMessage("signupMsg", "❌ Please fill in all fields.");
         return;
       }
 
@@ -24,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // LOGIN
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -32,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const storedUser = localStorage.getItem("user");
       const storedPass = localStorage.getItem("pass");
+
+      if (!storedUser || !storedPass) {
+        showMessage("loginMsg", "❌ No account found. Please sign up.");
+        return;
+      }
 
       if (user === storedUser && pass === storedPass) {
         localStorage.setItem("loggedIn", "true");
