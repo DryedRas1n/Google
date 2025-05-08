@@ -1,20 +1,47 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   text-align: center;
-  margin-top: 100px;
-  background: #f4f4f4;
 }
 
 input, button {
-  padding: 10px;
-  margin: 5px;
-  width: 200px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: red;
 }
 
 iframe {
   margin-top: 20px;
   border: 2px solid #000;
 }
-
